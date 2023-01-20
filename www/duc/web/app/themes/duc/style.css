@@ -53,6 +53,10 @@ h3{
     z-index: 99;         
 }
 
+#navbarNavAltMarkup li { margin-bottom: 0; }
+#navbarNavAltMarkup li::before { display: none; }
+#navbarNavAltMarkup li { text-transform: uppercase; }
+#navbarNavAltMarkup li li { text-transform: none; }
 
 #discourse-latest { text-align: center; margin: 3em auto; }
 #discourse-latest h3 { font-size: 1.5em !important; font-weight: bold; max-width: 90%; margin: 10px auto; }
@@ -82,15 +86,15 @@ h3{
     margin-right: 10px;
 
 }
-.navbar-nav .active{
+/* .navbar-nav .active{
     border-bottom: #59a5d8 3px solid;
-}
-.nav-link:hover, .nav-link:active{
+} */
+.nav-link:hover, .active .nav-link{
     border-bottom: 3px solid #59a5d8;
 }
-.dropdown-item.active{
+/* .dropdown-item.active{
     background-color: #59a5d8 !important;
-}
+} */
 
 @media screen and (max-width: 991px){
     .navbar-nav{

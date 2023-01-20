@@ -57,12 +57,26 @@ function duc_scripts() {
 	wp_enqueue_style( 'material', get_stylesheet_directory_uri() . '/material.min.css', [], '1.0');
 	wp_enqueue_style( 'gfonts', 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700|Open+Sans:300,400,600,700|Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900' );
 	wp_enqueue_style( 'gicons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
-	wp_enqueue_script( 'rellax', get_stylesheet_directory_uri() . '/js/rellax.js', ['jquery'], '1.0', true );
+	wp_enqueue_script( 'rellax', get_stylesheet_directory_uri() . '/js/rellax.js', [], '1.0', true );
+	wp_enqueue_script( 'aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], '2.3.1', true );
+	wp_enqueue_script( 'aos_init', get_stylesheet_directory_uri() . '/js/aos_init.js', ['aos'], '1.0', true );
+	wp_enqueue_script( 'mailerlite', get_stylesheet_directory_uri() . '/js/mailerlite.js', [], '1.0', true );
+	wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', ['jquery'], '1.14.3', true );
+	wp_enqueue_script( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', ['jquery'], '4.1.1', true );
 	wp_enqueue_script( 'material', get_stylesheet_directory_uri() . '/js/material.min.js', ['jquery'], '1.0', true );
-	wp_enqueue_script( 'discourse', get_stylesheet_directory_uri() . '/js/discourse.js', ['jquery'], '1.0', true );
+	wp_enqueue_script( 'discourse', get_stylesheet_directory_uri() . '/js/discourse.js', ['jquery'], '1.2', true );
+	wp_enqueue_script( 'smoothscroll', get_stylesheet_directory_uri() . '/js/smoothscroll.js', ['jquery'], '1.0', true );
 	// wp_style_add_data( 'duc-style', 'rtl', 'replace' );
 }
 add_action( 'wp_enqueue_scripts', 'duc_scripts' );
+
+if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.php' ) ) {
+    // File does not exist... return an error.
+    return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+} else {
+    // File exists... require it.
+    require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+}
 
 /**
  * Implement the Custom Header feature.

@@ -2,7 +2,7 @@
         'use strict'
 
         $(function () {
-          $.ajax('https://discourse.duc.ohie.org/latest.json').then(function (result) {
+          $.ajax('https://forum.datausecommunity.org/latest.json').then(function (result) {
             // Parse data to generate content from Discourse:
             // * Discourse endpoint, i.e. `result`,
             // * Number of posts to be shown on your site, e.g. `3`,
@@ -13,7 +13,7 @@
 
           $.fn.discourse = function (feed, numToShow) {
             var feedLength = feed.topic_list.topics.length;
-              var discourseURL = 'https://discourse.duc.ohie.org';
+              var discourseURL = 'https://forum.datausecommunity.org';
 
             // Make sure there are enough posts to be shown.
             if (numToShow > feedLength) {
@@ -24,7 +24,7 @@
                         var user_id = feed.users[i].id;
                           avatars[user_id] = discourseURL + feed.users[i].avatar_template.replace('/{size}', '/50');
                 }
-                  console.log(avatars);
+                  // console.log(avatars);
 
              var content = '';
             for (var i = 0; i < numToShow; i++) {
@@ -35,7 +35,7 @@
                   postDate      = new Date(post.created_at),
                   postLink      = discourseURL + '/t/' + post.slug + '/' + post.id;
 
-                console.log(post);
+                // console.log(post);
               // The purpose is to ignore the "About the X category" post
               // since it may not be desirable to be displayed on your site.
               if (post.title.substring(0, 10) === "About the " && post.title.substring(post.title.length - 9) === ' category') {

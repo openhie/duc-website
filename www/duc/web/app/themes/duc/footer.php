@@ -18,15 +18,15 @@
 						<h3>Founding Organizations</h3>
 					</div>
 					<div class="col-4 col-lg-2">
-						<img alt="DATIM logo" class="img-fluid" src="<?php echo get_template_directory_uri() ?>/image/logo.png">
+						<a href="https://pepfar.gov" target="_blank" rel="noopener noreferrer"><img alt="PEPFAR logo" class="img-fluid" src="<?php echo get_template_directory_uri() ?>/image/logo.png"></a>
 					</div>
 					<div class="col-4 col-lg-2">
-						<img alt="OPEN HIE logo" class="img-fluid" src="<?php echo get_template_directory_uri() ?>/image/openhie.png">
+						<a href="https://ohie.org" target="_blank" rel="noopener noreferrer"><img alt="OPEN HIE logo" class="img-fluid" src="<?php echo get_template_directory_uri() ?>/image/openhie.png">
 					</div>
 				</div>
 			</div>
 		</footer>
-
+<?php //echo get_page_template(); ?>
 <?php wp_footer(); ?>
 
 </body>
