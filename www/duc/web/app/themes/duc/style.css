@@ -4,7 +4,7 @@ Theme URI: http://datausecommunity.org
 Author: Regenstrief Institute
 Author URI: http://regenstrief.org
 Description: WP Theme for Data Use Community website
-Version: 1.0.9
+Version: 1.0.11
 Tested up to: 6.1.1
 Requires PHP: 8.1 // just 'cause
 License URI: LICENSE
@@ -72,7 +72,7 @@ h3{
 
 .simcal-align-right { display: none; }
 .simcal-events-list-container { display: flex; flex-direction: row; }
-.simcal-events-list-container .no-more { text-align: center; width: 100%; padding: 80px 0; font-style: italic; }
+.simcal-events-list-container .no-more { text-align: center; width: 100%; padding: 80px 0; font-style: italic; max-width: 400px; margin: 0 auto; }
 .simcal-events-list-container div { 
     flex-grow: 1;
     flex-basis: 0;
@@ -85,6 +85,7 @@ margin: 0 auto;}
 .simcal-events-list-container li::before { display: none; }
 .simcal-events-list-container h3 { text-align: center; font-weight: bold; font-size: 1.5rem !important; line-height: 1.1; border: 1px solid #59a5d8; border-radius: 0 0 .2rem .2rem; border-top-width: 5px; padding: .6rem; width: 100px; margin: 0 auto 10px auto; color: #59a5d8; text-transform: uppercase;}
 li.simcal-event, div.simcal-event-details, div.simcal-event-details > * { overflow: visible !important; }
+
 .navbar{
     min-height: auto !important;
     border-bottom: 1px solid #cdcdcd;
