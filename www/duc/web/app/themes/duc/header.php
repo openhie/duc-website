@@ -33,41 +33,7 @@
 				<button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<?php /*
-				<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-					<div class="navbar-nav">
-
-						<!-- Dropdown -->
-						<li class="nav-item dropdown">
-							<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">ABOUT</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="/duc-at-a-glance">DUC at a Glance</a>
-								<a class="dropdown-item" href="/history">History</a>
-								<a class="dropdown-item" href="/guiding-pillars">Guiding Pillars</a>
-								<a class="dropdown-item" href="/values">Values</a>
-							</div>
-						</li>
-
-						<li class="nav-item dropdown">
-							<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">INITIAL USE CASE</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="/interruption-in-treatment-and-continuity-of-treatment">Interruption in Treatment and Continuity of Treatment</a>
-								<a class="dropdown-item" href="/community-kick-off">Community Kick-Off</a>
-							</div>
-						</li>
-
-						<li class="nav-item"><a class="nav-link" href="https://wiki.ohie.org/pages/viewpage.action?spaceKey=SUB&title=Data+Use+Community" target="_blank" rel="noopener">RESOURCES<!--span class="material-icons" style="font-size: 95%; position: absolute; display: inline-block; margin-bottom: 5px; margin-left: 3px">launch</span--></a></li>
-
-						<li class="nav-item dropdown">
-							<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">GET ENGAGED</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="/join-the-duc">Join the DUC</a>
-								<a class="dropdown-item" href="/engagement-process">Engagement Process</a>
-							</div>
-						</li>
-
-					</div>
-				</div> */
+				<?php
 				wp_nav_menu( array(
 					'menu'			  => 'Nav',
 					'theme_location'  => 'primary',

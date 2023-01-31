@@ -4,7 +4,7 @@ Theme URI: http://datausecommunity.org
 Author: Regenstrief Institute
 Author URI: http://regenstrief.org
 Description: WP Theme for Data Use Community website
-Version: 1.0.1
+Version: 1.0.9
 Tested up to: 6.1.1
 Requires PHP: 8.1 // just 'cause
 License URI: LICENSE
@@ -63,15 +63,28 @@ h3{
 #discourse-latest h4 { font-size: 1em !important; margin-top: 30px; padding-left: 10px; padding-right: 10px; }
 #discourse-latest h4 span { display: block; margin-top: 5px; font-size: 80%; font-weight: normal; }
 #discourse-latest p { text-align: left; margin: 1em auto; }
-#discourse-latest .flex-container { display: flex; flext-direction: row; flex-wrap: wrap; justify-content: space-around; align-content: flex-start; }
+#discourse-latest .flex-container { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around; align-content: flex-start; }
 #discourse-latest .box { width: 32%; background-color: #b8e1f4; margin-top: 20px; margin-bottom: 20px; padding-bottom: 10px; border-top: 5px solid #59a5d8; }
 #discourse-latest img { border-radius: 100%; display: block; margin: -20px auto; }
 @media screen and (max-width: 991px){
 	#discourse-latest .box { width: 100%; }
 }
 
-
-
+.simcal-align-right { display: none; }
+.simcal-events-list-container { display: flex; flex-direction: row; }
+.simcal-events-list-container .no-more { text-align: center; width: 100%; padding: 80px 0; font-style: italic; }
+.simcal-events-list-container div { 
+    flex-grow: 1;
+    flex-basis: 0;
+max-width: 400px; 
+margin: 0 auto;}
+@media screen and (max-width: 991px){
+	.simcal-events-list-container { flex-direction: column; }
+}
+.simcal-events-list-container ul, .simcal-events-list-container li { margin: 0; padding: 0; }
+.simcal-events-list-container li::before { display: none; }
+.simcal-events-list-container h3 { text-align: center; font-weight: bold; font-size: 1.5rem !important; line-height: 1.1; border: 1px solid #59a5d8; border-radius: 0 0 .2rem .2rem; border-top-width: 5px; padding: .6rem; width: 100px; margin: 0 auto 10px auto; color: #59a5d8; text-transform: uppercase;}
+li.simcal-event, div.simcal-event-details, div.simcal-event-details > * { overflow: visible !important; }
 .navbar{
     min-height: auto !important;
     border-bottom: 1px solid #cdcdcd;

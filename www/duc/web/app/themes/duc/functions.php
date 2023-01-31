@@ -12,6 +12,33 @@ if ( ! defined( 'DUC_THEME_VERSION' ) ) {
 	define( 'DUC_THEME_VERSION', wp_get_theme()->get('Version') );
 }
 
+add_shortcode('duc-add-to-cal', 'duc_add_to_cal');
+function duc_add_to_cal($atts, $content) {
+	// [add-to-gcal-link]<strong>Add to Google Calendar</strong>[/add-to-gcal-link]
+	$options = "'Apple','Google','iCal','Outlook.com','Microsoft 365','Microsoft Teams'";
+	$tz = 'UTC';
+	$separator = '||';
+	// Expected order of content:
+	// name/title, location, startdate, enddate, starttime, endtime, timezone, description
+	$data = explode($separator, strip_tags($content));
+	$html = '';
+	$html .= '<add-to-calendar-button ';
+	$html .= 'options="' . $options . '" ';
+	$html .= 'organizer="Data Use Community|info@datausecommunity.org", ';
+	$html .= 'name="' . htmlspecialchars($data[0], ENT_QUOTES) . '" ';
+	$html .= 'location="' . trim($data[1]) . '" ';
+	$html .= 'startDate="' . htmlspecialchars($data[2], ENT_QUOTES) . '" ';
+	$html .= 'endDate="' . htmlspecialchars($data[3], ENT_QUOTES) . '" ';
+	$html .= 'startTime="' . htmlspecialchars($data[4], ENT_QUOTES) . '" ';
+	$html .= 'endTime="' . htmlspecialchars($data[5], ENT_QUOTES) . '" ';
+	$html .= 'timeZone="' . htmlspecialchars($data[6], ENT_QUOTES) . '" ';
+	$html .= 'hideBackground="true" ';
+	$html .= 'buttonStyle="custom" ';
+	$html .= 'customCss="' . get_stylesheet_directory_uri() . '/atcb.css' . '" ';
+	$html .= '></add-to-calendar-button>';
+	return $html;
+}
+
 function duc_setup() {
 	load_theme_textdomain( 'duc', get_template_directory() . '/languages' );
 	add_theme_support( 'automatic-feed-links' );
@@ -57,6 +84,7 @@ function duc_scripts() {
 	wp_enqueue_style( 'material', get_stylesheet_directory_uri() . '/material.min.css', [], '1.0');
 	wp_enqueue_style( 'gfonts', 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700|Open+Sans:300,400,600,700|Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900' );
 	wp_enqueue_style( 'gicons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
+	wp_enqueue_script( 'add-to-calendar-button', 'https://cdn.jsdelivr.net/npm/add-to-calendar-button', [], '2.0.2' );
 	wp_enqueue_script( 'rellax', get_stylesheet_directory_uri() . '/js/rellax.js', [], '1.0', true );
 	wp_enqueue_script( 'aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], '2.3.1', true );
 	wp_enqueue_script( 'aos_init', get_stylesheet_directory_uri() . '/js/aos_init.js', ['aos'], '1.0', true );
