@@ -15,8 +15,9 @@ if ( ! defined( 'DUC_THEME_VERSION' ) ) {
 add_shortcode('duc-add-to-cal', 'duc_add_to_cal');
 function duc_add_to_cal($atts, $content) {
 	// [add-to-gcal-link]<strong>Add to Google Calendar</strong>[/add-to-gcal-link]
-	$options = "'Apple','Google','iCal','Outlook.com','Microsoft 365','Microsoft Teams'";
+	$options = "'Apple','Google','iCal','Microsoft 365','Microsoft Teams','Yahoo'";
 	$tz = 'UTC';
+	$organizer = "Data Use Community|info@datausecommunity.org";
 	$separator = '||';
 	// Expected order of content:
 	// name/title, location, startdate, enddate, starttime, endtime, timezone, description
@@ -24,14 +25,15 @@ function duc_add_to_cal($atts, $content) {
 	$html = '';
 	$html .= '<add-to-calendar-button ';
 	$html .= 'options="' . $options . '" ';
-	$html .= 'organizer="Data Use Community|info@datausecommunity.org", ';
-	$html .= 'name="' . htmlspecialchars($data[0], ENT_QUOTES) . '" ';
+	$html .= 'organizer="' . $organizer . '" ';
+	// $html .= 'name="' . htmlspecialchars($data[0], ENT_QUOTES) . '" ';
+	$html .= 'name="' . $data[0] . '" ';
 	$html .= 'location="' . trim($data[1]) . '" ';
-	$html .= 'startDate="' . htmlspecialchars($data[2], ENT_QUOTES) . '" ';
-	$html .= 'endDate="' . htmlspecialchars($data[3], ENT_QUOTES) . '" ';
-	$html .= 'startTime="' . htmlspecialchars($data[4], ENT_QUOTES) . '" ';
-	$html .= 'endTime="' . htmlspecialchars($data[5], ENT_QUOTES) . '" ';
-	$html .= 'timeZone="' . htmlspecialchars($data[6], ENT_QUOTES) . '" ';
+	$html .= 'startDate="' . $data[2] . '" ';
+	$html .= 'endDate="' . $data[3] . '" ';
+	$html .= 'startTime="' . $data[4] . '" ';
+	$html .= 'endTime="' . $data[5] . '" ';
+	$html .= 'timeZone="' . $data[6] . '" ';
 	$html .= 'hideBackground="true" ';
 	$html .= 'buttonStyle="custom" ';
 	$html .= 'customCss="' . get_stylesheet_directory_uri() . '/atcb.css' . '" ';
