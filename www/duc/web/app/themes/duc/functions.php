@@ -15,7 +15,7 @@ if ( ! defined( 'DUC_THEME_VERSION' ) ) {
 add_shortcode('duc-add-to-cal', 'duc_add_to_cal');
 function duc_add_to_cal($atts, $content) {
 	// [add-to-gcal-link]<strong>Add to Google Calendar</strong>[/add-to-gcal-link]
-	$options = "'Apple','Google','iCal','Microsoft 365','Microsoft Teams','Yahoo'";
+	$options = "['Apple','iCal|Outlook','Google','Yahoo']";
 	$tz = 'UTC';
 	$organizer = "Data Use Community|info@datausecommunity.org";
 	$separator = '||';
@@ -36,6 +36,7 @@ function duc_add_to_cal($atts, $content) {
 	$html .= 'timeZone="' . $data[6] . '" ';
 	$html .= 'hideBackground="true" ';
 	$html .= 'buttonStyle="custom" ';
+	$html .= 'description="' . $data[7] . '[p]For all DUC calendar events and any potential updates, please visit the current [url]https://calendar.google.com/calendar/embed?src=info%40datausecommunity.org&ctz=America%2FIndiana%2FIndianapolis|Google Calendar[/url].[/p]" ';
 	$html .= 'customCss="' . get_stylesheet_directory_uri() . '/atcb.css' . '" ';
 	$html .= '></add-to-calendar-button>';
 	return $html;
