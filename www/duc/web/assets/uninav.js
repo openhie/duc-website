@@ -30,7 +30,7 @@ const navDiv = document.getElementById('uninav');
 const siteId = navDiv.getAttribute('data-site');
 const firstItem = document.createElement('li');
 const linkIcon = document.createElement('img');
-linkIcon.src = 'link.svg';
+linkIcon.src = 'https://datausecommunity.org/assets/link.svg';
 linkIcon.alt = 'link icon';
 firstItem.textContent = 'DUC';
 firstItem.appendChild(linkIcon);
