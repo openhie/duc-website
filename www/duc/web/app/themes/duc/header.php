@@ -24,6 +24,13 @@
 <?php wp_body_open(); ?>
 
 	<div class="sticky-top sticky">
+		<ul id="uninav">
+			<li>DUC<img src="https://datausecommunity.org/assets/link.svg" alt="link icon"></li>
+			<li><a href="https://datausecommunity.org" class="active">Website</a></li>
+			<li><a href="https://forum.datausecommunity.org">Forum</a></li>
+			<li><a href="https://wiki.ohie.org/pages/viewpage.action?spaceKey=SUB&amp;title=Data+Use+Community">Wiki</a></li>
+			<li><a href="https://guides.ohie.org/duc/">Technology Intervention Framework</a></li>
+		</ul>
 		<nav class="navbar navbar-expand-lg bg-white">
 			<div class="container">
 				<a class="navbar-brand" href="/">

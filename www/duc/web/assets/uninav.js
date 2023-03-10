@@ -3,12 +3,12 @@ const navData = {
 	"items": [
 		{
 			"id": 1,
-			"url": "uninav1.html",
+			"url": "https://datausecommunity.org",
 			"label": "Website"
 		},
 		{
 			"id": 2,
-			"url": "uninav2.html",
+			"url": "https://forum.datausecommunity.org",
 			"label": "Forum"
 		},
 		{
@@ -24,32 +24,37 @@ const navData = {
 	],
 	"message": ""
 }
-const body = document.body;
-// body.setAttribute("style", "margin-top: calc(" + navData.height + " + 1rem)");
-const navDiv = document.getElementById('uninav');
-const siteId = navDiv.getAttribute('data-site');
-const firstItem = document.createElement('li');
-const linkIcon = document.createElement('img');
-linkIcon.src = 'https://datausecommunity.org/assets/link.svg';
-linkIcon.alt = 'link icon';
-firstItem.textContent = 'DUC';
-firstItem.appendChild(linkIcon);
-navDiv.appendChild(firstItem);
+var body = document.body;
+var navDiv = document.getElementById('uninav');
+console.log('un start');
+if(navDiv!=null) {
+	// const siteId = navDiv.getAttribute('data-site');
+	var siteId = navDiv.dataset.site;
+	var firstItem = document.createElement('li');
+	var linkIcon = document.createElement('img');
+	linkIcon.src = 'https://datausecommunity.org/assets/link.svg';
+	linkIcon.alt = 'link icon';
+	firstItem.textContent = 'DUC';
+	firstItem.appendChild(linkIcon);
+	navDiv.appendChild(firstItem);
 
-for (let item of navData.items) {
-	const menuItem = document.createElement('li');
-	const menuItemLink = document.createElement('a');
-	menuItemLink.textContent = item.label;
-	menuItemLink.href = item.url;
-	if (item.id == siteId) {
-		menuItemLink.className = 'active';
+	for (let item of navData.items) {
+		var menuItem = document.createElement('li');
+		var menuItemLink = document.createElement('a');
+		menuItemLink.textContent = item.label;
+		menuItemLink.href = item.url;
+		if (item.id == siteId) {
+			menuItemLink.className = 'active';
+		}
+		menuItem.appendChild(menuItemLink);
+		navDiv.appendChild(menuItem);
 	}
-	menuItem.appendChild(menuItemLink);
-	navDiv.appendChild(menuItem);
-}
-if (navData.message) {
-	const msgItem = document.createElement('li');
-	msgItem.className = 'message';
-	msgItem.textContent = navData.message;
-	navDiv.appendChild(msgItem);
+	if (navData.message) {
+		var msgItem = document.createElement('li');
+		msgItem.className = 'message';
+		msgItem.textContent = navData.message;
+		navDiv.appendChild(msgItem);
+	}
+	body.classList.add('uninav');
+	console.log('uninav initialized!');
 }
